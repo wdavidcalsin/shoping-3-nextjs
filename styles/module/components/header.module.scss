@@ -7,9 +7,13 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      a {
+         text-decoration: none;
+      }
       h1 {
          font-size: 20px;
          margin: 0;
+         color: rgb(49, 49, 49);
       }
 
       .header_rigth {

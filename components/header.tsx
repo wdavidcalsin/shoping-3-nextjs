@@ -1,5 +1,5 @@
 import Link from "next/link";
-import st from "../styles/components/header.module.scss";
+import st from "../styles/module/components/header.module.scss";
 import Badge from "./badge";
 import useCountLike from "../context/countLike.context";
 
@@ -7,8 +7,12 @@ function Header() {
    const { countLike } = useCountLike();
    return (
       <header className={st.header}>
-         <div className={"container " + st.item}>
-            <h1>Tienda 3</h1>
+         <div className={`container ${st.item}`}>
+            <Link href="/">
+               <a>
+                  <h1>Tienda 3</h1>
+               </a>
+            </Link>
             <div className={st.header_rigth}>
                <Link href="/">
                   <a>Home</a>

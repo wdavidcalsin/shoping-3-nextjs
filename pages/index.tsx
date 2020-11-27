@@ -1,35 +1,25 @@
-import Head from "next/head";
-import Link from "next/link";
 import "bootstrap-container";
-import Header from "../components/header";
-import Cards from "../components/cards";
-import { CountLikeProvider } from "../context/countLike.context";
+import Cards from "../components/cards/cards";
+import Layout from "../components/layout";
+import { useProducts } from "../context/product.context";
 
 export default function Home() {
+   const { products } = useProducts();
+
    const styleCards: any = {
       display: "flex",
       flexFlow: "row wrap",
    };
 
    return (
-      <>
-         <Head>
-            <title>Create Next App</title>
-            <link rel="icon" href="/favicon.ico" />
-         </Head>
-         <Header />
-         <main style={{ padding: "30px 0" }}>
-            <div className="container">
-               <div style={styleCards}>
-                  <Cards />
-                  <Cards />
-                  <Cards />
-                  <Cards />
-                  <Cards />
-                  <Cards />
-               </div>
+      <Layout>
+         <div className="container">
+            <div style={styleCards}>
+               {products.map((item, index) => (
+                  <Cards items={item} key={index} index={index} />
+               ))}
             </div>
-         </main>
-      </>
+         </div>
+      </Layout>
    );
 }

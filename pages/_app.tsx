@@ -1,10 +1,16 @@
 import "../styles/global/styles.scss";
 import { CountLikeProvider } from "../context/countLike.context";
+import { ProductsContextProvider } from "../context/product.context";
+import { LikeCardsProvider } from "../context/likeCards.context";
 
 export default function MyApp({ Component, pageProps }) {
    return (
-      <CountLikeProvider>
-         <Component {...pageProps} />
-      </CountLikeProvider>
+      <LikeCardsProvider>
+         <CountLikeProvider>
+            <ProductsContextProvider>
+               <Component {...pageProps} />
+            </ProductsContextProvider>
+         </CountLikeProvider>
+      </LikeCardsProvider>
    );
 }

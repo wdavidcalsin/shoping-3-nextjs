@@ -1,21 +1,25 @@
-import Head from "next/head";
-import Link from "next/link";
-import Header from "../../components/header";
+import React from "react";
+import Cards from "../../components/cards/cards";
+import Layout from "../../components/layout";
+import { useCards } from "../../context/likeCards.context";
 
-export default function About() {
+export default function Like() {
+   const { likeCards } = useCards();
+   const styleCards: any = {
+      display: "flex",
+      flexFlow: "row wrap",
+   };
+
    return (
-      <div>
-         <Head>
-            <title>Page of Like</title>
-            <link rel="icon" href="/favicon.ico" />
-         </Head>
-         <Header />
-         <main>
-            <Link href="/">
-               <a>Home</a>
-            </Link>
-            <h1 className="title">Welcome to Like</h1>
-         </main>
-      </div>
+      <Layout>
+         <div className="container">
+            david
+            <div style={styleCards}>
+               {likeCards.map((item, index) => (
+                  <Cards items={item} key={index} index={index} />
+               ))}
+            </div>
+         </div>
+      </Layout>
    );
 }

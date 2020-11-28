@@ -16,7 +16,7 @@ export default function Home() {
          <div className="container">
             <div style={styleCards}>
                {products.map((item, index) => (
-                  <Cards items={item} key={index} index={index} />
+                  <Cards items={item} key={index} page="home" />
                ))}
             </div>
          </div>

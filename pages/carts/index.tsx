@@ -1,14 +1,11 @@
-import Link from "next/link";
 import Layout from "../../components/layout";
+import Empty from "../../components/empty";
 
 export default function Carts() {
    return (
       <Layout>
          <div className="container">
-            <Link href="/">
-               <a>Home</a>
-            </Link>
-            <h1 className="title">Welcome to Carts</h1>
+            <Empty img="https://www.flaticon.es/svg/static/icons/svg/413/413037.svg" />
          </div>
       </Layout>
    );

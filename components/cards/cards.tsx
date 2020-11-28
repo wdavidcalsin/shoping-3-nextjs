@@ -1,30 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import st from "../../styles/module/components/cards.module.scss";
 import { useCountLike } from "../../context/countLike.context";
 import { useCards } from "../../context/likeCards.context";
 
-function Cards({ items, index }) {
+function Cards({ items, page }) {
    // ---- HOKKS
    const [like, setLike] = useState(false);
    const { likeCards, setLikeCards } = useCards();
    const { countLike, setCountLike } = useCountLike();
 
+   // useEffect(() => {
+   //    console.log(likeCards);
+   // });
+
    //----- FUNCTION REMOVE ITEM LIKECARDS
    const handleRemove = (removeId) => {
-      console.log(removeId);
+      // console.log(removeId);
       const newList = likeCards.filter((item) => item.id !== removeId);
       setLikeCards(newList);
    };
 
    //----- FUNCTION THAT DUPLICATES THE PRODUCTS I LIKE FOR THE PAGE LIKE
    const addLikes = (items) => {
-      console.log(items);
+      // console.log(items);
       setLikeCards([...likeCards, items]);
    };
 
    //----- FUNCTION THAT VALIDATES THE I LIKE BUTTON
-   const likeBoll = (items, removeId) => {
+   const likeBoll = (items, removeId, page) => {
       if (like) {
          setLike(false);
          setCountLike(countLike - 1);
@@ -32,8 +36,14 @@ function Cards({ items, index }) {
       } else {
          setLike(true);
          setCountLike(countLike + 1);
-         addLikes(items);
+         page == "home" ? addLikes(items) : null;
       }
+   };
+
+   const buttonClass = (id) => {
+      likeCards.map((val, index) => {
+         val.id === id ? true : false;
+      });
    };
 
    //  --------- RENDER ---------------
@@ -42,12 +52,10 @@ function Cards({ items, index }) {
          <div className={st.item}>
             <Image src={items.photo} width={300} height={200} />
             <h2>{items.name}</h2>
-            <span>{items.id}</span>
             <div className={st.reactions}>
                <button
-                  value={items.id}
-                  onClick={() => likeBoll(items, items.id)}
-                  className={like ? st.backg : ""}
+                  onClick={() => likeBoll(items, items.id, page)}
+                  className={like || buttonClass(items.id) ? st.backg : ""}
                >
                   <img
                      src="https://www.flaticon.es/svg/static/icons/svg/535/535234.svg"

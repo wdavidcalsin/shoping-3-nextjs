@@ -1,22 +1,63 @@
 import React, { useContext, createContext, useState } from "react";
+import { filter, find } from "lodash";
 
-export const countLikeContext = createContext({} as any);
+export const WishlistContext = createContext({} as any);
 
-export const CountLikeProvider = ({ children }: any) => {
-   const [countLike, setCountLike] = useState(0);
-   const values = { countLike, setCountLike };
+export const WishlistProvider = ({ children }: any) => {
+   const [wishlistData, setWishlistData] = useState([]);
+
+   const hasProductInWislist = (product) => {
+      return find(
+         wishlistData,
+         (wishlistProduct: any) => wishlistProduct.id === product.id
+      );
+   };
+
+   const addProductToWishlist = (product) => {
+      const hasProduct = hasProductInWislist(product);
+
+      let payloadData;
+
+      if (hasProduct) {
+         payloadData = filter(
+            wishlistData,
+            (wishlistProduct: any) => wishlistProduct.id !== product.id
+         );
+      } else {
+         payloadData = [...wishlistData, product];
+      }
+
+      setWishlistData(payloadData);
+   };
 
    return (
-      <countLikeContext.Provider value={values}>
+      <WishlistContext.Provider
+         value={{
+            wishlistData,
+            wishlistCount: wishlistData.length,
+            addProductToWishlist,
+            hasProductInWislist,
+         }}
+      >
          {children}
-      </countLikeContext.Provider>
+      </WishlistContext.Provider>
    );
 };
 
-export function useCountLike() {
-   const { countLike, setCountLike } = useContext(countLikeContext);
+export function useWishlist() {
+   const {
+      wishlistData,
+      wishlistCount,
+      addProductToWishlist,
+      hasProductInWislist,
+   } = useContext(WishlistContext);
 
-   return { countLike, setCountLike };
+   return {
+      wishlistData,
+      wishlistCount,
+      addProductToWishlist,
+      hasProductInWislist,
+   };
 }
 
-export default useCountLike;
+export default useWishlist;

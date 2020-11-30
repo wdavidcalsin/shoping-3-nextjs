@@ -1,10 +1,10 @@
 import Link from "next/link";
 import st from "../styles/module/components/header.module.scss";
 import Badge from "./badge";
-import useCountLike from "../context/countLike.context";
+import useWishlist from "../context/countLike.context";
 
 function Header() {
-   const { countLike } = useCountLike();
+   const { wishlistCount } = useWishlist();
    return (
       <header className={st.header}>
          <div className={`container ${st.item}`}>
@@ -20,7 +20,7 @@ function Header() {
                <Link href="/like">
                   <a>
                      Like
-                     <Badge content={countLike} />
+                     <Badge content={wishlistCount} />
                   </a>
                </Link>
                <Link href="/carts">

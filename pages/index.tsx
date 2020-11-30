@@ -1,4 +1,3 @@
-import "bootstrap-container";
 import Cards from "../components/cards/cards";
 import Layout from "../components/layout";
 import { useProducts } from "../context/product.context";

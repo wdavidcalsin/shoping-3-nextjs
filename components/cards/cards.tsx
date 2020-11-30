@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import st from "../../styles/module/components/cards.module.scss";
 import { useCountLike } from "../../context/countLike.context";

@@ -1,3 +1,4 @@
+import "bootstrap-container";
 import "../styles/global/styles.scss";
 import { CountLikeProvider } from "../context/countLike.context";
 import { ProductsContextProvider } from "../context/product.context";

@@ -23,7 +23,7 @@ function Cards(props) {
    return (
       <div className={st.cards}>
          <div className={st.item}>
-            <Image src={data.photo} width={300} height={200} />
+            <Image src={data.photo} width={300} height={300} />
             <h2>{data.name}</h2>
             <div className={st.reactions}>
                <button onClick={onChange} className={classNameBooll(data.id)}>

@@ -10,20 +10,14 @@ function Cards({ items, page }) {
    const { likeCards, setLikeCards } = useCards();
    const { countLike, setCountLike } = useCountLike();
 
-   // useEffect(() => {
-   //    console.log(likeCards);
-   // });
-
    //----- FUNCTION REMOVE ITEM LIKECARDS
    const handleRemove = (removeId) => {
-      // console.log(removeId);
       const newList = likeCards.filter((item) => item.id !== removeId);
       setLikeCards(newList);
    };
 
    //----- FUNCTION THAT DUPLICATES THE PRODUCTS I LIKE FOR THE PAGE LIKE
    const addLikes = (items) => {
-      // console.log(items);
       setLikeCards([...likeCards, items]);
    };
 
@@ -40,11 +34,14 @@ function Cards({ items, page }) {
       }
    };
 
-   const buttonClass = (id) => {
-      likeCards.map((val, index) => {
-         val.id === id ? true : false;
-      });
+   //----- FUNCTION THAT VALIDATES THE I LIKE BUTTON
+   const found = (id) => {
+      const likeValor = likeCards.find((element) => element.id == id);
+      return likeValor != undefined ? true : false;
    };
+
+   // ------ CONST
+   const classNameBooll = (id) => (like || found(id) ? st.backg : "");
 
    //  --------- RENDER ---------------
    return (
@@ -55,7 +52,7 @@ function Cards({ items, page }) {
             <div className={st.reactions}>
                <button
                   onClick={() => likeBoll(items, items.id, page)}
-                  className={like || buttonClass(items.id) ? st.backg : ""}
+                  className={classNameBooll(items.id)}
                >
                   <img
                      src="https://www.flaticon.es/svg/static/icons/svg/535/535234.svg"

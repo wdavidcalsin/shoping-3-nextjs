@@ -1,5 +1,4 @@
-import "bootstrap-container";
-import Cards from "../components/cards/cards";
+import Cards from "../components/cards";
 import Layout from "../components/layout";
 import { useProducts } from "../context/product.context";
 
@@ -16,7 +15,7 @@ export default function Home() {
          <div className="container">
             <div style={styleCards}>
                {products.map((item, index) => (
-                  <Cards items={item} key={index} page="home" />
+                  <Cards data={item} key={index} />
                ))}
             </div>
          </div>

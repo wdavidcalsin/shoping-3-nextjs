@@ -1,17 +1,17 @@
 import "bootstrap-container";
 import "../styles/global/styles.scss";
-import { WishlistProvider } from "../context/countLike.context";
+import { WishlistProvider } from "../context/wishlist.context";
 import { ProductsContextProvider } from "../context/product.context";
-import { LikeCardsProvider } from "../context/likeCards.context";
+import { CartsProvider } from "../context/carts.context";
 
 export default function MyApp({ Component, pageProps }) {
    return (
-      <LikeCardsProvider>
+      <CartsProvider>
          <WishlistProvider>
             <ProductsContextProvider>
                <Component {...pageProps} />
             </ProductsContextProvider>
          </WishlistProvider>
-      </LikeCardsProvider>
+      </CartsProvider>
    );
 }

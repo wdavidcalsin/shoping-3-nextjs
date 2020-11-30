@@ -1,0 +1,72 @@
+.cartList {
+   background: rgb(233, 233, 233);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   padding: 20px;
+
+   div {
+      display: flex;
+      align-items: center;
+      .btnRemove {
+         background-color: white;
+         border-radius: 50%;
+         cursor: pointer;
+         font-size: 20px;
+         border: 1px dashed rgb(223, 113, 113);
+         color: red;
+         outline: none;
+         padding: 5px;
+         margin-right: 20px;
+      }
+
+      .img {
+         border-radius: 50%;
+         margin: 0 20000000px;
+         padding: 0 200px;
+         display: block;
+
+         img {
+            display: block;
+            margin: 5000px;
+            padding: 650px;
+         }
+      }
+   }
+
+   .countCart {
+      //   background-color: red;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      //   background-color: orange;
+      input {
+         width: 50px;
+         text-align: center;
+         border: none;
+         font-size: 20px;
+         outline: none;
+         display: inline-block;
+      }
+
+      button {
+         border: none;
+         outline: none;
+         font-size: 20px;
+         cursor: pointer;
+         padding: 1px 10px;
+         background-color: white;
+         height: 100%;
+         display: inline-block;
+         //  line-height: 26px;
+      }
+      //   padding: 500px;
+   }
+
+   h3 {
+      padding: 0 50px;
+   }
+}

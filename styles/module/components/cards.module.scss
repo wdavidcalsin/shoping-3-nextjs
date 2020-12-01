@@ -15,7 +15,7 @@
             outline: none;
             cursor: pointer;
             transition: all 0.5s;
-            z-index: 1;
+            // z-index: 1;
 
             &:hover {
                background: rgba(0, 0, 0, 0.1);
@@ -23,10 +23,15 @@
             img {
                width: 30px;
                padding: 20px 0;
-               z-index: -1;
+               // z-index: -1;
             }
-            &.backg {
+            &.backgWislist {
                background-color: rgba(255, 0, 0, 0.274);
+               opacity: 1;
+            }
+
+            &.backgCart {
+               background-color: rgba(143, 221, 142, 0.63);
                opacity: 1;
             }
          }

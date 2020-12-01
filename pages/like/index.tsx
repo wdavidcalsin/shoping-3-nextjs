@@ -2,8 +2,7 @@ import React from "react";
 import Cards from "../../components/cards";
 import Empty from "../../components/empty";
 import Layout from "../../components/layout";
-import useWishlist from "../../context/countLike.context";
-import { useCards } from "../../context/likeCards.context";
+import useWishlist from "../../context/wishlist.context";
 
 import style from "../../styles/module/page/like.module.scss";
 

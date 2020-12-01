@@ -1,10 +1,20 @@
 import Image from "next/image";
-import {} from "react";
+import { useState } from "react";
 import useCart from "../context/carts.context";
 import style from "../styles/module/components/cartList.module.scss";
 
 const CartList = (props) => {
    const { data } = props;
+
+   const [countCartItem, setCountCartItem] = useState(1);
+
+   const subtractCartItem = () => {
+      countCartItem >= 2 ? setCountCartItem(countCartItem - 1) : countCartItem;
+   };
+
+   const addCartItem = () => {
+      setCountCartItem(countCartItem + 1);
+   };
 
    const { addProductsToCart } = useCart();
 
@@ -12,7 +22,7 @@ const CartList = (props) => {
 
    return (
       <div className={style.cartList}>
-         <div>
+         <div className={style.dataCart}>
             <button onClick={changeCart} className={style.btnRemove}>
                X
             </button>
@@ -25,9 +35,12 @@ const CartList = (props) => {
             <h3>{data.name}</h3>
          </div>
          <div className={style.countCart}>
-            <button>-</button>
-            <input type="text" value="1" />
-            <button>+</button>
+            <h3>{`$ ${data.price}`}</h3>
+            <div>
+               <button onClick={subtractCartItem}>-</button>
+               <input type="text" value={countCartItem} />
+               <button onClick={addCartItem}>+</button>
+            </div>
          </div>
       </div>
    );

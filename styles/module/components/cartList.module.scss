@@ -6,7 +6,7 @@
 
    padding: 20px;
 
-   div {
+   .dataCart {
       display: flex;
       align-items: center;
       .btnRemove {
@@ -17,7 +17,7 @@
          border: 1px dashed rgb(223, 113, 113);
          color: red;
          outline: none;
-         padding: 5px;
+         padding: 5px 10px;
          margin-right: 20px;
       }
 
@@ -33,40 +33,47 @@
             padding: 650px;
          }
       }
+
+      h3 {
+         padding: 0 50px;
+         margin: 0;
+      }
    }
 
    .countCart {
-      //   background-color: red;
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      align-content: center;
-      //   background-color: orange;
-      input {
-         width: 50px;
-         text-align: center;
-         border: none;
-         font-size: 20px;
-         outline: none;
-         display: inline-block;
+      // background-color: orange;
+      // width: 100%;
+
+      h3 {
+         // padding: 0;
+         color: rgb(110, 107, 107);
+         padding: 0 20px;
       }
 
-      button {
-         border: none;
-         outline: none;
-         font-size: 20px;
-         cursor: pointer;
-         padding: 1px 10px;
-         background-color: white;
-         height: 100%;
-         display: inline-block;
-         //  line-height: 26px;
-      }
-      //   padding: 500px;
-   }
+      div {
+         input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 20px;
+            outline: none;
+            display: inline-block;
+         }
 
-   h3 {
-      padding: 0 50px;
+         button {
+            border: none;
+            outline: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 1px 10px;
+            background-color: white;
+            height: 100%;
+            display: inline-block;
+            //  line-height: 26px;
+         }
+      }
    }
 }
